@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teste de Integração — JVM Labs</title>
+</head>
+<body>
+<h1>Laboratório Java 21 — Teste da API</h1>
+
+<button id="executar">Consultar JVM</button>
+
+<button id="executarThread">Executar Thread Real</button>
+
+<pre id="resultado">Aguardando teste...</pre>
+
+<script>
+    document.getElementById("executar")
+        .addEventListener("click", async () => {
+            const resultado =
+                document.getElementById("resultado");
+
+            resultado.textContent = "Consultando API...";
+
+            try {
+                const resposta = await fetch("/api/status");
+
+                if (!resposta.ok) {
+                    throw new Error(
+                        "HTTP " + resposta.status
+                    );
+                }
+
+                const dados = await resposta.json();
+
+                resultado.textContent =
+                    JSON.stringify(dados, null, 2);
+
+            } catch (erro) {
+                resultado.textContent =
+                    "Erro: " + erro.message;
+            }
+        });
+
+
+    document.getElementById("executarThread")
+        .addEventListener("click", async () => {
+
+            const resultado =
+                document.getElementById("resultado");
+
+            resultado.textContent =
+                "Executando Thread Java 21...";
+
+            try {
+                const resposta =
+                    await fetch("/api/threads/executar");
+
+                if (!resposta.ok) {
+                    throw new Error(
+                        "HTTP " + resposta.status
+                    );
+                }
+
+                const dados = await resposta.json();
+
+                resultado.textContent =
+                    JSON.stringify(dados, null, 2);
+
+            } catch (erro) {
+                resultado.textContent =
+                    "Erro: " + erro.message;
+            }
+        });
+
+</script>
+</body>
+</html>

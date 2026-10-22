@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, Segoe UI, Arial, sans-serif;
+    background: #0c1425;
+    color: #e9f1ff;
+    line-height: 1.55
+}
+
+header {
+    padding: 30px max(20px, calc((100% - 1100px) / 2));
+    background: linear-gradient(115deg, #123665, #17223a)
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(25px, 4vw, 40px)
+}
+
+header p {
+    color: #c9d9ee
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px
+}
+
+nav a, .btn {
+    color: #fff;
+    background: #285bb2;
+    border: 1px solid #537dcb;
+    border-radius: 9px;
+    padding: 10px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit
+}
+
+nav a:hover, .btn:hover {
+    background: #3974d1
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 24px 18px 60px
+}
+
+h2 {
+    color: #9bd5ff
+}
+
+h3 {
+    margin-top: 0
+}
+
+.flow {
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap: 10px
+}
+
+.flow button, .tile {
+    border: 1px solid #456184;
+    border-radius: 12px;
+    background: #16263e;
+    color: #fff;
+    padding: 16px;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    min-width: 0
+}
+
+.flow button:focus-visible, .tile:focus-visible, .btn:focus-visible {
+    outline: 3px solid #ffcb57;
+    outline-offset: 2px
+}
+
+.flow button.active, .tile.active {
+    border-color: #5bdbbb;
+    background: #194b58
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap: 12px
+}
+
+.tile strong {
+    display: block;
+    color: #b9e5ff
+}
+
+.tile small {
+    color: #c5d3e4
+}
+
+.panel {
+    border: 1px solid #3c5877;
+    border-radius: 14px;
+    background: #13243a;
+    padding: 20px;
+    margin-top: 16px
+}
+
+.panel p {
+    margin: 8px 0
+}
+
+.muted {
+    color: #bbcbdb
+}
+
+.code {
+    background: #07101f;
+    border-radius: 9px;
+    padding: 15px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: #b5f3cc;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 14px
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 14px 0
+}
+
+td, th {
+    border: 1px solid #405575;
+    padding: 9px;
+    text-align: left
+}
+
+th {
+    background: #223956
+}
+
+.controls {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin: 14px 0
+}
+
+.badge {
+    display: inline-block;
+    background: #244d62;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin: 3px
+}
+
+.note {
+    border-left: 4px solid #ffca6c;
+    padding: 10px 15px;
+    background: #292a35;
+    margin: 18px 0
+}
+
+footer {
+    text-align: center;
+    color: #b9c6d6;
+    padding: 24px
+}
+
+a {
+    color: #9bd5ff
+}
+
+ul {
+    padding-left: 22px
+}
+
+@media (max-width: 700px) {
+    .flow {
+        grid-template-columns:repeat(2, 1fr)
+    }
+
+    .grid {
+        grid-template-columns:repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media (max-width: 430px) {
+    .grid {
+        grid-template-columns:1fr
+    }
+}
+
+[hidden] {
+    display: none !important
+}
+
+nav button[aria-pressed="true"] {
+    background: #194b58;
+    border-color: #5bdbbb
+}
+
+.btn:disabled {
+    opacity: .45;
+    cursor: not-allowed
+}
+
+/* Etapa 3.9 — Laboratório de execução real */
+
+.real-lab {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 24px;
+    background: #172842;
+    color: #e8f2ff;
+    border: 1px solid #355579;
+    border-radius: 12px;
+}
+
+.real-lab h2 {
+    color: #9bd6ff;
+    margin-top: 0;
+}
+
+#executarThreadReal {
+    background: #2860b5;
+    color: white;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#executarThreadReal:hover {
+    background: #3475d4;
+}
+
+#executarThreadReal:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#resultadoThreadReal {
+    margin-top: 16px;
+    padding: 16px;
+    background: #0b1425;
+    color: #b7f4d1;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+/* ETAPA 3.11 - RACE CONDITION REAL */
+
+#laboratorio-race {
+    margin-top: 24px;
+}
+
+.race-results {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.race-results[hidden] {
+    display: none;
+}
+
+.race-result {
+    background: #0b172b;
+    border: 1px solid #355273;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.race-result span {
+    display: block;
+    color: #b9d5ea;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.race-result strong {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#statusRaceCondition {
+    margin-top: 14px;
+    font-weight: 600;
+}
+
+#resultadoRaceCondition {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+/* NAVEGAÇÃO - LABORATÓRIOS REAIS */
+
+.btn-laboratorios {
+    background: #087f8c;
+    color: #ffffff;
+    border: 1px solid #14b8a6;
+    font-weight: 700;
+}
+
+.btn-laboratorios:hover {
+    background: #0d9488;
+}
+
+#laboratorio-real {
+    scroll-margin-top: 24px;
+}
+
+html {
+    scroll-behavior: smooth;
+}

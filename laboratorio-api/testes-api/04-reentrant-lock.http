@@ -1,0 +1,4 @@
+### Executar teste ReentrantLock e tryLock
+GET http://localhost:8080/api/threads/reentrant-lock
+Accept: application/json
+###

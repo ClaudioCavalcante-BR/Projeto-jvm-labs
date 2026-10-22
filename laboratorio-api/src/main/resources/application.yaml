@@ -1,0 +1,17 @@
+
+# PROJETO JVM LABS
+# ETAPA 4.5 — CONFIGURACAO DO PORTAL
+# Autor: Claudio Cavalcante de Almeida
+
+spring:
+  application:
+    name: laboratorio-api
+
+server:
+  port: 8080
+
+# Configuracoes exclusivas do Portal JVM Labs
+laboratorio:
+  portal:
+    auto-open: false
+    path: /portal.html

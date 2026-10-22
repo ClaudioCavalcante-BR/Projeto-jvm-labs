@@ -1,0 +1,4 @@
+### Executar teste de Race Condition
+GET http://localhost:8080/api/threads/race-condition
+Accept: application/json
+###

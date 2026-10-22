@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Compilação
+target/
+build/
+.gradle/
+
+# Diagnósticos e logs
+*.log
+*.jfr
+*.hprof
+hs_err_pid*
+
+# Configurações locais
+.env
+.env.*
+!.env.example
+application-local.yaml
+application-local.properties
+
+# Backups locais
+backup*/
+material-interativo-backup-etapa-3-8/

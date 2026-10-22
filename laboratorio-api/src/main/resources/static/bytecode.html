@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bytecode Explorer | Projeto JVM Labs</title>
+
+    <link rel="stylesheet" href="/css/bytecode.css">
+    <script src="/js/bytecode.js" defer></script>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <span class="eyebrow">
+            PROJETO JVM LABS · JAVA 21
+        </span>
+
+        <h1>Bytecode Explorer</h1>
+
+        <p>
+            Laboratório interativo de instruções da JVM
+        </p>
+    </div>
+
+
+    <!-- ETAPA 4.4.2 — NAVEGAÇÃO ENTRE OS MÓDULOS -->
+
+    <nav aria-label="Navegação principal do Projeto JVM Labs">
+
+        <a class="back-link"
+           href="/portal.html"
+           title="Retornar ao painel central">
+            ← Voltar ao Portal
+        </a>
+
+        <a class="back-link"
+           href="/?modulo=jvm"
+           title="Acessar o Módulo 1">
+            Módulo 1 — JVM
+        </a>
+
+        <a class="back-link"
+           href="/?modulo=threads"
+           title="Acessar o Módulo 2">
+            Módulo 2 — Threads
+        </a>
+
+    </nav>
+
+    <!-- FIM DA ETAPA 4.4.2 -->
+
+
+</header>
+    <main class="container">
+
+        <!-- ======================================================
+             APRESENTAÇÃO DO MÓDULO
+             ====================================================== -->
+
+    <section class="intro">
+
+        <h2>Módulo 3 — Explorando o Bytecode</h2>
+
+        <p>
+            Visualize como o código Java é representado
+            por instruções JVM, bytes hexadecimais e binários,
+            acompanhando a pilha de operandos e as variáveis
+            locais.
+        </p>
+
+    </section>
+
+    <!-- ======================================================
+         NAVEGAÇÃO DOS LABORATÓRIOS
+         ====================================================== -->
+
+    <nav class="lab-nav"
+         aria-label="Experimentos de Bytecode">
+
+        <button
+                type="button"
+                class="active"
+                id="btnNavegacaoAritmetica"
+                aria-pressed="true">
+            3.17.1 — Aritmética
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoDecisao"
+                aria-pressed="false">
+            3.17.2 — Decisões
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoRace"
+                aria-pressed="false">
+            3.17.3-A — Race Condition
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoRaceSincronizada"
+                aria-pressed="false">
+            3.17.3-B — synchronized
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoObjetos"
+                aria-pressed="false">
+            3.17.4 — Objetos
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoSincronizacao"
+                aria-pressed="false">
+            3.17.5 — Sincronização
+        </button>
+
+        <button
+                type="button"
+                id="btnExperimentoDeadlock"
+                aria-pressed="false">
+            3.17.6 — Deadlock
+        </button>
+
+
+    </nav>
+
+    <!-- ======================================================
+         LABORATÓRIO INTERATIVO
+         ====================================================== -->
+
+    <section class="lab-section"
+             aria-labelledby="lab-title">
+
+        <div class="section-heading">
+
+            <span
+                    class="eyebrow"
+                    id="identificacaoExperimento">
+                EXPERIMENTO 3.17.1-A
+            </span>
+
+            <h2 id="lab-title">
+                Variáveis e operações aritméticas
+            </h2>
+
+            <p>
+                Experimentos baseados em Bytecode compilado
+                com Java 21 e analisado com javap.
+            </p>
+
+        </div>
+
+        <!-- ==================================================
+             SELEÇÃO DOS EXPERIMENTOS ARITMÉTICOS
+             ================================================== -->
+
+        <div class="execution-panel" id="painelExperimentosAritmeticos">
+
+            <h3>Selecionar experimento</h3>
+
+            <p>
+                Utilize os botões abaixo para selecionar
+                os experimentos de Aritmética.
+
+                Para estudar estruturas de decisão e
+                concorrência, utilize a navegação superior.
+            </p>
+
+            <div class="controls">
+
+                <button
+                        id="btnExperimentoSoma"
+                        type="button"
+                        aria-pressed="true">
+                    Experimento A — Soma
+                </button>
+
+                <button
+                        id="btnExperimentoMatematica"
+                        type="button"
+                        aria-pressed="false">
+                    Experimento B — Multiplicação e subtração
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             EXPERIMENTO 3.17.6 — DEADLOCK
+             SELEÇÃO DAS THREADS
+             ================================================== -->
+
+        <div
+                class="execution-panel"
+                id="painelExperimentoDeadlock"
+                hidden>
+
+            <h3>Diagnóstico de Deadlock na JVM</h3>
+
+            <p>
+                Compare o Bytecode real das threads A e B.
+                Observe a ordem de aquisição dos monitores
+                LOCK_1 e LOCK_2 e identifique a espera circular
+                responsável pelo deadlock.
+            </p>
+
+            <div class="controls">
+
+                <button
+                        type="button"
+                        id="btnDeadlockThreadA"
+                        aria-pressed="true">
+                    Thread A — LOCK_1 → LOCK_2
+                </button>
+
+                <button
+                        type="button"
+                        id="btnDeadlockThreadB"
+                        aria-pressed="false">
+                    Thread B — LOCK_2 → LOCK_1
+                </button>
+
+            </div>
+
+            <p
+                    id="estadoDeadlock"
+                    aria-live="polite">
+                Selecione uma thread para examinar
+                suas instruções JVM.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             ÁREA INTERATIVA
+             ================================================== -->
+
+        <div class="workspace">
+
+            <!-- CÓDIGO-FONTE JAVA -->
+
+            <article class="panel">
+
+                <h3>Código-fonte Java</h3>
+
+                <pre><code id="codigoFonteJava">int a = 1;
+                            int b = 2;
+                            int resultado = a + b;
+
+                            System.out.println(resultado);</code></pre>
+
+            </article>
+
+            <!-- INSTRUÇÕES JVM -->
+
+            <article class="panel">
+
+                <h3>Instruções JVM</h3>
+
+                <ol
+                        id="listaInstrucoes"
+                        class="instruction-list"
+                        aria-label="Instruções do experimento selecionado">
+                </ol>
+
+            </article>
+
+            <!-- REPRESENTAÇÃO DOS BYTES -->
+
+            <article class="panel">
+
+                <h3>Representação dos bytes</h3>
+
+                <div class="byte-display">
+
+                    <div>
+                        <span class="field-label">
+                            Instrução
+                        </span>
+
+                        <strong id="instrucaoAtual">
+                            —
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="field-label">
+                            Hexadecimal
+                        </span>
+
+                        <strong id="hexAtual">
+                            —
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span class="field-label">
+                            Binário
+                        </span>
+
+                        <strong id="binAtual">
+                            —
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PILHA E VARIÁVEIS LOCAIS -->
+
+            <article class="panel">
+
+                <h3>Pilha de operandos</h3>
+
+                <div
+                        id="pilhaOperandos"
+                        class="operand-stack"
+                        aria-live="polite">
+                </div>
+
+                <h3>Variáveis locais</h3>
+
+                <div
+                        id="variaveisLocais"
+                        class="local-variables">
+                </div>
+
+            </article>
+
+        </div>
+
+        <!-- ==================================================
+             EXECUÇÃO PASSO A PASSO
+             ================================================== -->
+
+        <section class="execution-panel">
+
+            <h3>Execução passo a passo</h3>
+
+            <p
+                    id="explicacaoInstrucao"
+                    aria-live="polite">
+                Carregando instruções reais da API Java...
+            </p>
+
+            <div class="controls">
+
+                <button
+                        id="btnAnterior"
+                        type="button"
+                        disabled>
+                    Anterior
+                </button>
+
+                <span id="contadorPassos">
+                    Aguardando carregamento
+                </span>
+
+                <button
+                        id="btnProximo"
+                        type="button"
+                        disabled>
+                    Próxima instrução
+                </button>
+
+                <button
+                        id="btnReiniciar"
+                        type="button"
+                        disabled>
+                    Reiniciar
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- ======================================================
+         ORIGEM DOS DADOS
+         ====================================================== -->
+
+    <section class="technical-note">
+
+        <h2>Origem dos dados</h2>
+
+        <p>
+            As instruções apresentadas são obtidas a partir
+            dos arquivos .class compilados com Java 21
+            e inspecionados pela ferramenta javap.
+
+            A API Java disponibiliza os opcodes, offsets
+            e representações dos bytes para o navegador.
+
+            A pilha de operandos e as variáveis locais
+            são representadas por um interpretador
+            didático implementado em JavaScript.
+        </p>
+
+        <p>
+            Nos experimentos de estruturas de decisão,
+            a execução considera os desvios condicionais
+            e incondicionais, respeitando os offsets
+            das instruções JVM.
+        </p>
+
+        <p>
+            Nos experimentos de Race Condition,
+            o Bytecode real é obtido da API.
+
+            A interface demonstra didaticamente
+            um incremento do contador compartilhado,
+            sem reproduzir as 100.000 iterações
+            de cada thread.
+
+            A presença de synchronized é identificada
+            pela flag ACC_SYNCHRONIZED do método.
+        </p>
+        <p>
+            No experimento de criação de objetos,
+            a interface apresenta as instruções
+            new, dup, ldc, bipush, invokespecial,
+            astore, aload e invokevirtual.
+
+            O laboratório demonstra como a JVM
+            cria uma instância da classe Pessoa,
+            executa seu construtor, armazena
+            a referência em uma variável local
+            e invoca o método apresentar().
+
+            A representação da pilha de operandos
+            e das referências é didática,
+            baseada no Bytecode real da aplicação.
+        </p>
+
+
+        <p>
+            No experimento 3.17.6, a API REST fornece
+            o Bytecode real dos métodos executarThreadA()
+            e executarThreadB(), compilados com Java 21.
+
+            As instruções monitorenter e monitorexit
+            demonstram a aquisição e a liberação dos
+            monitores da JVM.
+
+            O deadlock foi reproduzido em um processo Java
+            separado e confirmado pelas ferramentas
+            jcmd e jstack.
+
+            A interface apresenta uma análise didática
+            desse comportamento, sem executar um novo
+            deadlock no servidor Spring Boot.
+        </p>
+
+        <p>
+            Sequência hexadecimal do experimento selecionado:
+
+            <code id="sequenciaHexadecimal">
+                Aguardando carregamento...
+            </code>
+        </p>
+
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <p>
+        Projeto JVM Labs — Módulo 3 — Bytecode Java 21
+    </p>
+
+</footer>
+
+</body>
+</html>

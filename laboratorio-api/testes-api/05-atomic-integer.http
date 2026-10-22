@@ -1,0 +1,4 @@
+### API-05 — volatile e AtomicInteger
+GET http://localhost:8080/api/threads/atomic-integer
+Accept: application/json
+###

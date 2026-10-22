@@ -1,0 +1,4 @@
+### Consultar status da aplicação
+GET http://localhost:8080/api/status
+Accept: application/json
+###

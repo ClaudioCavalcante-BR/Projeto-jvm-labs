@@ -1,0 +1,736 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+      Laboratório Interativo — Java 21, JVM e Threads
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Java, JVM e Threads — Laboratório Interativo
+   </h1>
+   <p>
+    Do código-fonte à execução, memória, concorrência e observabilidade — Java 21.
+   </p>
+   <nav>
+       <!-- ETAPA 4.4.1 — RETORNO AO PORTAL JVM LABS -->
+       <a class="btn"
+          href="/portal.html"
+          title="Retornar ao painel principal">
+           ← Voltar ao Portal JVM Labs
+       </a>
+       <!-- FIM DA ETAPA 4.4.1 -->
+       <button class="btn" data-view="all" type="button">
+     Mapa interativo
+    </button>
+    <button class="btn" data-view="jvm" type="button">
+     Módulo 1 — JVM
+    </button>
+    <button class="btn" data-view="threads" type="button">
+     Módulo 2 — Threads
+    </button>
+
+       <button class="btn btn-laboratorios"
+               id="irParaLaboratorios"
+               type="button">
+           Laboratórios Reais ↓
+       </button>
+
+
+       <!-- ETAPA 3.13 - ACESSO AO LABORATORIO REENTRANTLOCK -->
+       <button class="btn btn-laboratorios"
+               id="irParaReentrantLock"
+               type="button">
+           ReentrantLock 3.13 ↓
+       </button>
+
+
+       <!-- ETAPA 3.14 - ACESSO AO LABORATORIO ATOMICINTEGER -->
+       <button class="btn btn-laboratorios"
+               id="irParaAtomicInteger"
+               type="button">
+           AtomicInteger 3.14 ↓
+       </button>
+
+
+       <!-- ETAPA 3.15 - ACESSO AO LABORATORIO VIRTUAL THREADS -->
+       <button class="btn btn-laboratorios"
+               id="irParaVirtualThreads"
+               type="button">
+           Virtual Threads 3.15 ↓
+       </button>
+
+
+       <!-- ETAPA 3.16 - ACESSO AO LABORATORIO DE DIAGNOSTICO -->
+       <button class="btn btn-laboratorios"
+               id="irParaDiagnostico"
+               type="button">
+           Diagnóstico 3.16 ↓
+       </button>
+
+
+   </nav>
+  </header>
+  <main>
+   <section data-section="jvm">
+    <h2>
+     Fluxo de execução Java
+    </h2>
+    <div class="flow">
+     <button data-topic="source" type="button">
+      1. Exemplo.java
+     </button>
+     <button data-topic="compiler" type="button">
+      2. javac
+     </button>
+     <button data-topic="bytecode" type="button">
+      3. Exemplo.class
+     </button>
+     <button data-topic="jvm" type="button">
+      4. JVM → saída
+     </button>
+    </div>
+   </section>
+   <section data-section="jvm">
+    <h2>
+     Fundamentos e compilação
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="source" type="button">
+      <strong>
+       Código-fonte
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="compiler" type="button">
+      <strong>
+       Compilador javac
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="bytecode" type="button">
+      <strong>
+       Bytecode
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jvm" type="button">
+      <strong>
+       JVM
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jdk" type="button">
+      <strong>
+       JDK / JRE
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section data-section="jvm">
+    <h2>
+     Arquitetura interna da JVM
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="loader" type="button">
+      <strong>
+       Class Loader
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="verifier" type="button">
+      <strong>
+       Verificador
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="heap" type="button">
+      <strong>
+       Heap
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="stack" type="button">
+      <strong>
+       Stack
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="metaspace" type="button">
+      <strong>
+       Method Area / Metaspace
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jit" type="button">
+      <strong>
+       Interpretador e JIT
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="gc" type="button">
+      <strong>
+       Garbage Collector
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section data-section="threads">
+    <h2>
+     Threads e concorrência
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="thread" type="button">
+      <strong>
+       Thread
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="lifecycle" type="button">
+      <strong>
+       Estados oficiais
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="race" type="button">
+      <strong>
+       Race Condition
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="sync" type="button">
+      <strong>
+       synchronized
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="lock" type="button">
+      <strong>
+       ReentrantLock / tryLock
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="volatile" type="button">
+      <strong>
+       volatile / AtomicInteger
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="virtual" type="button">
+      <strong>
+       Threads virtuais
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="observability" type="button">
+      <strong>
+       Diagnóstico e JFR
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section aria-live="polite" class="panel">
+    <h2 id="topicTitle">
+     Código-fonte Java
+    </h2>
+    <p id="topicDescription">
+    </p>
+    <pre class="code" id="topicCode"></pre>
+    <p class="muted" id="topicTip">
+    </p>
+   </section>
+   <section class="panel">
+    <h2>
+     Simule a execução, etapa por etapa
+    </h2>
+    <p aria-live="polite" id="stepStatus">
+    </p>
+    <div class="controls">
+     <button class="btn" id="prev" type="button">
+      ← Anterior
+     </button>
+     <button class="btn" id="next" type="button">
+      Próxima →
+     </button>
+     <button class="btn" id="reset" type="button">
+      Reiniciar
+     </button>
+    </div>
+   </section>
+
+      <!-- ETAPA 3.9 — LABORATÓRIO DE EXECUÇÃO REAL -->
+      <section id="laboratorio-real"
+               class="real-lab"
+               data-section="threads"
+               aria-labelledby="real-lab-title">
+
+          <h2 id="real-lab-title">
+              Laboratório de Execução Real — Java 21
+          </h2>
+
+          <p>
+              Execute uma Thread real na JVM e consulte
+              os resultados retornados pela API Spring Boot.
+          </p>
+
+          <button type="button" id="executarThreadReal">
+              Executar Thread Real
+          </button>
+
+          <p id="statusThreadReal" role="status">
+              Aguardando execução.
+          </p>
+
+          <pre id="resultadoThreadReal"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+      <!-- FIM DA ETAPA 3.9 -->
+      <!-- ETAPA 3.11 - RACE CONDITION REAL    -->
+      <section id="laboratorio-race" class="real-lab"
+               aria-labelledby="race-title">
+
+          <h2 id="race-title">
+              Laboratório Race Condition — Execução Real
+          </h2>
+
+          <p>
+              Execute oito threads concorrentes e compare
+              o contador compartilhado sem sincronização
+              e com synchronized.
+          </p>
+
+          <button type="button"
+                  id="executarRaceCondition"
+                  class="btn">
+              Executar Race Condition Real
+          </button>
+
+          <p id="statusRaceCondition" role="status">
+              Aguardando execução.
+          </p>
+
+          <div id="comparativoRaceCondition"
+               class="race-results"
+               hidden>
+
+              <div class="race-result">
+                  <span>Resultado esperado</span>
+                  <strong id="raceEsperado">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Sem sincronização</span>
+                  <strong id="raceSemSync">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Com synchronized</span>
+                  <strong id="raceComSync">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Atualizações perdidas</span>
+                  <strong id="racePerdidas">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Percentual de perda</span>
+                  <strong id="racePercentual">—</strong>
+              </div>
+
+          </div>
+
+          <h3>Resposta JSON da API</h3>
+
+          <pre id="resultadoRaceCondition"
+               class="code"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+      <!-- FIM DA ETAPA 3.11 -->
+
+
+      <!-- ETAPA 3.13 - LABORATORIO REENTRANTLOCK -->
+      <section id="laboratorio-lock"
+               class="real-lab"
+               aria-labelledby="lock-title">
+
+          <h2 id="lock-title">
+              Laboratório ReentrantLock — Execução Real
+          </h2>
+
+          <p>
+              Execute duas threads reais na JVM Java 21
+              e observe o funcionamento do ReentrantLock
+              e do tryLock().
+          </p>
+
+          <button type="button"
+                  id="executarLockReal"
+                  class="btn">
+              Executar ReentrantLock Real
+          </button>
+
+          <p id="statusLockReal" role="status">
+              Aguardando execução.
+          </p>
+
+          <div id="comparativoLock"
+               class="race-results"
+               hidden>
+
+              <div class="race-result">
+                  <span>Primeira tentativa</span>
+                  <strong id="lockPrimeira">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Segunda tentativa</span>
+                  <strong id="lockSegunda">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Lock liberado</span>
+                  <strong id="lockLiberado">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Execução</span>
+                  <strong id="lockExecucao">—</strong>
+              </div>
+
+          </div>
+
+          <h3>Resposta JSON da API</h3>
+
+          <pre id="resultadoLockReal"
+               class="code"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+      <!-- FIM DA ETAPA 3.13 -->
+
+
+      <!-- ETAPA 3.14 - LABORATORIO VOLATILE E ATOMICINTEGER -->
+
+      <section id="laboratorio-atomic"
+               class="real-lab"
+               aria-labelledby="atomic-title">
+
+          <h2 id="atomic-title">
+              Laboratório volatile e AtomicInteger — Execução Real
+          </h2>
+
+          <p>
+              Execute oito threads concorrentes na JVM Java 21
+              e compare o comportamento de um contador volatile
+              com um contador AtomicInteger.
+          </p>
+
+          <button type="button"
+                  id="executarAtomicInteger"
+                  class="btn">
+              Executar AtomicInteger Real
+          </button>
+
+          <p id="statusAtomicInteger" role="status">
+              Aguardando execução.
+          </p>
+
+          <div id="comparativoAtomicInteger"
+               class="race-results"
+               hidden>
+
+              <div class="race-result">
+                  <span>Resultado esperado</span>
+                  <strong id="atomicEsperado">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Contador volatile</span>
+                  <strong id="atomicVolatile">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Contador AtomicInteger</span>
+                  <strong id="atomicResultado">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Atualizações perdidas</span>
+                  <strong id="atomicPerdidas">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>AtomicInteger correto</span>
+                  <strong id="atomicCorreto">—</strong>
+              </div>
+
+          </div>
+
+          <h3>Resposta JSON da API</h3>
+
+          <pre id="resultadoAtomicInteger"
+               class="code"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+
+      <!-- FIM DA ETAPA 3.14 -->
+
+
+
+      <!-- ETAPA 3.15 - LABORATORIO VIRTUAL THREADS -->
+
+      <section id="laboratorio-virtual"
+               class="real-lab"
+               aria-labelledby="virtual-title">
+
+          <h2 id="virtual-title">
+              Laboratório Virtual Threads — Execução Real
+          </h2>
+
+          <p>
+              Compare a execução de 100 tarefas concorrentes
+              utilizando Platform Threads e Virtual Threads
+              na JVM Java 21.
+          </p>
+
+          <button type="button"
+                  id="executarVirtualThreads"
+                  class="btn">
+              Executar Virtual Threads Real
+          </button>
+
+          <p id="statusVirtualThreads" role="status">
+              Aguardando execução.
+          </p>
+
+          <div id="comparativoVirtualThreads"
+               class="race-results"
+               hidden>
+
+              <div class="race-result">
+                  <span>Total de tarefas</span>
+                  <strong id="virtualTarefas">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Espera por tarefa</span>
+                  <strong id="virtualEspera">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Platform Threads (pool)</span>
+                  <strong id="virtualPlatform">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Virtual Threads</span>
+                  <strong id="virtualQuantidade">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Tempo Platform Threads</span>
+                  <strong id="virtualTempoPlatform">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Tempo Virtual Threads</span>
+                  <strong id="virtualTempoVirtual">—</strong>
+              </div>
+
+          </div>
+
+          <p class="muted">
+              Observação: o executor tradicional utiliza um pool
+              fixo de 10 threads, enquanto o executor virtual
+              utiliza uma Virtual Thread por tarefa.
+              Os tempos não representam um benchmark
+              com concorrência equivalente.
+          </p>
+
+          <h3>Resposta JSON da API</h3>
+
+          <pre id="resultadoVirtualThreads"
+               class="code"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+
+      <!-- FIM DA ETAPA 3.15 -->
+
+
+      <!-- ETAPA 3.16 - LABORATORIO DE DIAGNOSTICO DE THREADS -->
+
+      <section id="laboratorio-diagnostico"
+               class="real-lab"
+               aria-labelledby="diagnostico-title">
+
+          <h2 id="diagnostico-title">
+              Laboratório de Diagnóstico de Threads — Execução Real
+          </h2>
+
+          <p>
+              Execute duas threads reais na JVM Java 21
+              e acompanhe seus estados antes, durante
+              e após a execução.
+          </p>
+
+          <button type="button"
+                  id="executarDiagnostico"
+                  class="btn">
+              Executar Diagnóstico Real
+          </button>
+
+          <p id="statusDiagnostico" role="status">
+              Aguardando execução.
+          </p>
+
+          <!-- INDICADORES DO LABORATORIO -->
+
+          <div id="comparativoDiagnostico"
+               class="race-results"
+               hidden>
+
+              <div class="race-result">
+                  <span>Threads criadas</span>
+                  <strong id="diagnosticoThreads">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Estado inicial — Thread A</span>
+                  <strong id="diagnosticoInicialA">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Estado inicial — Thread B</span>
+                  <strong id="diagnosticoInicialB">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Durante a execução — Thread A</span>
+                  <strong id="diagnosticoDuranteA">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Durante a execução — Thread B</span>
+                  <strong id="diagnosticoDuranteB">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Estado final — Thread A</span>
+                  <strong id="diagnosticoFinalA">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Estado final — Thread B</span>
+                  <strong id="diagnosticoFinalB">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Elementos da pilha — Thread A</span>
+                  <strong id="diagnosticoPilhaA">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Elementos da pilha — Thread B</span>
+                  <strong id="diagnosticoPilhaB">—</strong>
+              </div>
+
+              <div class="race-result">
+                  <span>Espera confirmada</span>
+                  <strong id="diagnosticoEspera">—</strong>
+              </div>
+
+          </div>
+
+          <p class="muted">
+              NEW: thread criada.
+              WAITING: thread aguardando liberação.
+              TERMINATED: thread finalizada.
+              Os elementos da pilha representam a quantidade
+              de registros capturados durante a execução.
+          </p>
+
+          <h3>Resposta JSON da API</h3>
+
+          <pre id="resultadoDiagnostico"
+               class="code"
+               aria-live="polite">Nenhum teste realizado.</pre>
+
+      </section>
+
+      <!-- FIM DA ETAPA 3.16 -->
+
+
+      <div class="note">
+    Este simulador é conceitual: apresenta o fluxo da JVM, mas não executa bytecode real no navegador. Para executar Java, use o JDK 21 e o IntelliJ IDEA.
+   </div>
+  </main>
+  <footer>
+   Material didático autoral para estudo e portfólio — Java 21 / JVM / Threads.
+  </footer>
+  <div id="jsHealth" role="status" style="padding:12px 20px;background:#16304a;color:#fff;text-align:center">
+   Aguardando JavaScript. Abra no Chrome ou Safari, não na pré-visualização de arquivos.
+  </div>
+  <script defer="" src="js/app.js">
+  </script>
+
+
+  <!-- ETAPA 4.4.3 — NAVEGAÇÃO AUTOMÁTICA DOS MÓDULOS -->
+  <script defer src="/js/navegacao-modulos.js"></script>
+  <!-- FIM DA ETAPA 4.4.3 -->
+
+
+ </body>
+</html>
+

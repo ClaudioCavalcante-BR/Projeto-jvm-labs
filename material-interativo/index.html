@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+      Laboratório Interativo — Java 21, JVM e Threads
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Java, JVM e Threads — Laboratório Interativo
+   </h1>
+   <p>
+    Do código-fonte à execução, memória, concorrência e observabilidade — Java 21.
+   </p>
+   <nav>
+    <button class="btn" data-view="all" type="button">
+     Mapa interativo
+    </button>
+    <button class="btn" data-view="jvm" type="button">
+     Módulo 1 — JVM
+    </button>
+    <button class="btn" data-view="threads" type="button">
+     Módulo 2 — Threads
+    </button>
+   </nav>
+  </header>
+  <main>
+   <section data-section="jvm">
+    <h2>
+     Fluxo de execução Java
+    </h2>
+    <div class="flow">
+     <button data-topic="source" type="button">
+      1. Exemplo.java
+     </button>
+     <button data-topic="compiler" type="button">
+      2. javac
+     </button>
+     <button data-topic="bytecode" type="button">
+      3. Exemplo.class
+     </button>
+     <button data-topic="jvm" type="button">
+      4. JVM → saída
+     </button>
+    </div>
+   </section>
+   <section data-section="jvm">
+    <h2>
+     Fundamentos e compilação
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="source" type="button">
+      <strong>
+       Código-fonte
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="compiler" type="button">
+      <strong>
+       Compilador javac
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="bytecode" type="button">
+      <strong>
+       Bytecode
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jvm" type="button">
+      <strong>
+       JVM
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jdk" type="button">
+      <strong>
+       JDK / JRE
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section data-section="jvm">
+    <h2>
+     Arquitetura interna da JVM
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="loader" type="button">
+      <strong>
+       Class Loader
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="verifier" type="button">
+      <strong>
+       Verificador
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="heap" type="button">
+      <strong>
+       Heap
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="stack" type="button">
+      <strong>
+       Stack
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="metaspace" type="button">
+      <strong>
+       Method Area / Metaspace
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="jit" type="button">
+      <strong>
+       Interpretador e JIT
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="gc" type="button">
+      <strong>
+       Garbage Collector
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section data-section="threads">
+    <h2>
+     Threads e concorrência
+    </h2>
+    <div class="grid">
+     <button class="tile" data-topic="thread" type="button">
+      <strong>
+       Thread
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="lifecycle" type="button">
+      <strong>
+       Estados oficiais
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="race" type="button">
+      <strong>
+       Race Condition
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="sync" type="button">
+      <strong>
+       synchronized
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="lock" type="button">
+      <strong>
+       ReentrantLock / tryLock
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="volatile" type="button">
+      <strong>
+       volatile / AtomicInteger
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="virtual" type="button">
+      <strong>
+       Threads virtuais
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+     <button class="tile" data-topic="observability" type="button">
+      <strong>
+       Diagnóstico e JFR
+      </strong>
+      <small>
+       Toque para estudar o componente
+      </small>
+     </button>
+    </div>
+   </section>
+   <section aria-live="polite" class="panel">
+    <h2 id="topicTitle">
+     Código-fonte Java
+    </h2>
+    <p id="topicDescription">
+    </p>
+    <pre class="code" id="topicCode"></pre>
+    <p class="muted" id="topicTip">
+    </p>
+   </section>
+   <section class="panel">
+    <h2>
+     Simule a execução, etapa por etapa
+    </h2>
+    <p aria-live="polite" id="stepStatus">
+    </p>
+    <div class="controls">
+     <button class="btn" id="prev" type="button">
+      ← Anterior
+     </button>
+     <button class="btn" id="next" type="button">
+      Próxima →
+     </button>
+     <button class="btn" id="reset" type="button">
+      Reiniciar
+     </button>
+    </div>
+   </section>
+   <div class="note">
+    Este simulador é conceitual: apresenta o fluxo da JVM, mas não executa bytecode real no navegador. Para executar Java, use o JDK 21 e o IntelliJ IDEA.
+   </div>
+  </main>
+  <footer>
+   Material didático autoral para estudo e portfólio — Java 21 / JVM / Threads.
+  </footer>
+  <div id="jsHealth" role="status" style="padding:12px 20px;background:#16304a;color:#fff;text-align:center">
+   Aguardando JavaScript. Abra no Chrome ou Safari, não na pré-visualização de arquivos.
+  </div>
+  <script defer="" src="js/app.js">
+  </script>
+ </body>
+</html>
+

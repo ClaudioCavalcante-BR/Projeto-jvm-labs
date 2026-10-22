@@ -1,0 +1,511 @@
+
+/*
+ * PROJETO JVM LABS
+ * MÓDULO 4 — PORTAL DE NAVEGAÇÃO
+ * ETAPA 4.2 — IDENTIDADE VISUAL
+ *
+ * Autor: Claudio Cavalcante de Almeida
+ * Ano: 2026
+ *
+ * Arquivo: portal.css
+ * Local: static/css/portal.css
+ *
+ * Estilos exclusivos do Portal JVM Labs.
+ * Não modifica os módulos existentes.
+ */
+
+/* =========================================
+   1. VARIÁVEIS E IDENTIDADE VISUAL
+   ========================================= */
+
+:root {
+    color-scheme: dark;
+
+    --background: #08111f;
+    --background-secondary: #0d1b2f;
+
+    --surface: #11243b;
+    --surface-hover: #183451;
+
+    --border: #29445f;
+
+    --text-primary: #f1f6ff;
+    --text-secondary: #b8c9dc;
+
+    --blue: #3b82f6;
+    --cyan: #22d3ee;
+    --green: #34d399;
+
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+
+    --radius: 16px;
+
+    font-family:
+            "Century Gothic",
+            "Avenir Next",
+            "Segoe UI",
+            Arial,
+            sans-serif;
+}
+
+/* =========================================
+   2. RESET E ESTRUTURA GERAL
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+
+    background:
+            linear-gradient(
+                    rgba(4, 14, 30, 0.58),
+                    rgba(4, 14, 30, 0.78)
+            ),
+            url("../images/everest-bg.png")
+            center center / cover no-repeat fixed;
+
+
+    color: var(--text-primary);
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 4px;
+}
+
+a,
+.module-card {
+    transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+/* =========================================
+   3. CABEÇALHO DO PORTAL
+   ========================================= */
+
+.portal-header {
+    padding: 64px 24px 48px;
+
+    text-align: center;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(8, 17, 31, 0.45);
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+
+    color: var(--cyan);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.portal-header h1 {
+    margin: 0;
+
+    font-size: clamp(2.2rem, 5vw, 3.7rem);
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+
+    background: linear-gradient(
+            90deg,
+            #ffffff,
+            #8ec5ff,
+            #53e5f4
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.subtitle {
+    max-width: 740px;
+
+    margin: 20px auto 0;
+
+    color: var(--text-secondary);
+
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   4. CONTEÚDO CENTRAL
+   ========================================= */
+
+.portal-container {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 48px 0 72px;
+
+    flex: 1;
+}
+
+.welcome {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.welcome h2 {
+    margin: 0 0 12px;
+    font-size: 1.65rem;
+}
+
+.welcome p {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   5. CARTÕES DOS TRÊS MÓDULOS
+   ========================================= */
+
+.modules {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.module-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 330px;
+
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: linear-gradient(
+            160deg,
+            var(--surface),
+            #0b1a2c
+    );
+
+    box-shadow: var(--shadow);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--blue);
+
+    box-shadow:
+            0 24px 48px rgba(0, 0, 0, 0.36);
+}
+
+.module-number {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(34, 211, 238, 0.3);
+
+    background: rgba(34, 211, 238, 0.08);
+
+    color: var(--cyan);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.module-card h2 {
+    margin: 24px 0 14px;
+
+    font-size: 1.45rem;
+    line-height: 1.3;
+}
+
+.module-card p {
+    margin: 0 0 28px;
+
+    color: var(--text-secondary);
+
+    flex: 1;
+}
+
+/* =========================================
+   6. BOTÕES DE ACESSO AOS MÓDULOS
+   ========================================= */
+
+.module-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background: var(--blue);
+
+    color: #ffffff;
+
+    font-weight: 700;
+    text-align: center;
+}
+
+.module-link:hover {
+    background: #2563eb;
+
+    transform: translateY(-2px);
+}
+
+.module-link:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. ACESSOS RÁPIDOS
+   ========================================= */
+
+.quick-access {
+    margin-top: 40px;
+
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: rgba(17, 36, 59, 0.8);
+}
+
+.quick-access h2 {
+    margin: 0 0 22px;
+
+    font-size: 1.35rem;
+}
+
+.quick-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+.quick-links a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 10px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--surface-hover);
+
+    color: var(--text-primary);
+
+    font-weight: 600;
+}
+
+.quick-links a:hover {
+    border-color: var(--cyan);
+
+    background: #204766;
+}
+
+.access-note {
+    margin: 22px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   8. RODAPÉ E AUTORIA
+   ========================================= */
+
+.portal-footer {
+    padding: 25px 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    background: rgba(8, 17, 31, 0.7);
+}
+
+.portal-footer p {
+    margin: 5px 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   9. RESPONSIVIDADE — TABLET
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .modules {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .module-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .portal-header {
+        padding: 52px 20px 40px;
+    }
+}
+
+/* =========================================
+   10. RESPONSIVIDADE — CELULAR
+   ========================================= */
+
+@media (max-width: 640px) {
+
+    .portal-container {
+        width: calc(100% - 28px);
+
+        padding: 32px 0 48px;
+    }
+
+    .modules {
+        grid-template-columns: 1fr;
+    }
+
+    .module-card:last-child {
+        grid-column: auto;
+    }
+
+    .module-card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .portal-header {
+        padding: 40px 18px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .welcome h2 {
+        font-size: 1.4rem;
+    }
+
+    .quick-access {
+        padding: 24px;
+    }
+
+    .quick-links {
+        flex-direction: column;
+    }
+
+    .quick-links a {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   11. ACESSIBILIDADE
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   RODAPÉ — IDENTIDADE, AUTORIA E VERSÃO
+   ========================================= */
+
+.portal-footer .footer-project {
+    color: #a5c9e9;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.portal-footer .footer-author {
+    color: #f1f6ff;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.portal-footer .footer-copyright {
+    color: #b8c9dc;
+    font-size: 0.78rem;
+}
+
+.portal-footer .footer-version {
+    margin-top: 12px;
+    color: #87b8cf;
+    font-size: 0.72rem;
+}
+

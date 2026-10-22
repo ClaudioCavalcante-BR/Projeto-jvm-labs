@@ -1,0 +1,229 @@
+jdk.CPULoad {
+  startTime = 20:43:10.297 (2026-09-24)
+  jvmUser = 1,37%
+  jvmSystem = 0,00%
+  machineTotal = 25,97%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:11.299 (2026-09-24)
+  jvmUser = 1,75%
+  jvmSystem = 0,12%
+  machineTotal = 24,66%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:12.302 (2026-09-24)
+  jvmUser = 1,61%
+  jvmSystem = 0,12%
+  machineTotal = 14,18%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:13.306 (2026-09-24)
+  jvmUser = 1,62%
+  jvmSystem = 0,12%
+  machineTotal = 15,29%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:14.310 (2026-09-24)
+  jvmUser = 1,61%
+  jvmSystem = 0,12%
+  machineTotal = 16,96%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:15.312 (2026-09-24)
+  jvmUser = 1,50%
+  jvmSystem = 0,00%
+  machineTotal = 14,97%
+}
+
+jdk.GarbageCollection {
+  startTime = 20:43:15.614 (2026-09-24)
+  duration = 3,40 ms
+  gcId = 60
+  name = "G1New"
+  cause = "G1 Evacuation Pause"
+  sumOfPauses = 3,40 ms
+  longestPause = 3,40 ms
+  eventThread = "VM Thread" (osThreadId = 17923)
+}
+
+jdk.CPULoad {
+  startTime = 20:43:16.313 (2026-09-24)
+  jvmUser = 1,75%
+  jvmSystem = 0,25%
+  machineTotal = 14,97%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:17.316 (2026-09-24)
+  jvmUser = 1,13%
+  jvmSystem = 0,00%
+  machineTotal = 22,52%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:18.322 (2026-09-24)
+  jvmUser = 1,24%
+  jvmSystem = 0,12%
+  machineTotal = 27,25%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:19.330 (2026-09-24)
+  jvmUser = 1,36%
+  jvmSystem = 0,00%
+  machineTotal = 17,50%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:20.335 (2026-09-24)
+  jvmUser = 1,25%
+  jvmSystem = 0,12%
+  machineTotal = 19,80%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:21.340 (2026-09-24)
+  jvmUser = 1,24%
+  jvmSystem = 0,12%
+  machineTotal = 28,82%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:22.357 (2026-09-24)
+  jvmUser = 1,61%
+  jvmSystem = 0,12%
+  machineTotal = 29,70%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:23.362 (2026-09-24)
+  jvmUser = 1,73%
+  jvmSystem = 0,12%
+  machineTotal = 21,08%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:24.366 (2026-09-24)
+  jvmUser = 1,50%
+  jvmSystem = 0,00%
+  machineTotal = 24,44%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:25.369 (2026-09-24)
+  jvmUser = 1,75%
+  jvmSystem = 0,12%
+  machineTotal = 21,91%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:26.370 (2026-09-24)
+  jvmUser = 1,49%
+  jvmSystem = 0,12%
+  machineTotal = 27,04%
+}
+
+jdk.GarbageCollection {
+  startTime = 20:43:26.378 (2026-09-24)
+  duration = 1,88 ms
+  gcId = 61
+  name = "G1New"
+  cause = "G1 Evacuation Pause"
+  sumOfPauses = 1,88 ms
+  longestPause = 1,88 ms
+  eventThread = "VM Thread" (osThreadId = 17923)
+}
+
+jdk.CPULoad {
+  startTime = 20:43:27.376 (2026-09-24)
+  jvmUser = 2,13%
+  jvmSystem = 0,12%
+  machineTotal = 13,22%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:28.378 (2026-09-24)
+  jvmUser = 1,88%
+  jvmSystem = 0,25%
+  machineTotal = 19,35%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:29.384 (2026-09-24)
+  jvmUser = 1,61%
+  jvmSystem = 0,12%
+  machineTotal = 28,97%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:30.386 (2026-09-24)
+  jvmUser = 1,25%
+  jvmSystem = 0,00%
+  machineTotal = 26,91%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:31.389 (2026-09-24)
+  jvmUser = 1,50%
+  jvmSystem = 0,12%
+  machineTotal = 20,13%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:32.393 (2026-09-24)
+  jvmUser = 1,24%
+  jvmSystem = 0,12%
+  machineTotal = 21,28%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:33.394 (2026-09-24)
+  jvmUser = 1,37%
+  jvmSystem = 0,12%
+  machineTotal = 21,18%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:34.396 (2026-09-24)
+  jvmUser = 1,13%
+  jvmSystem = 0,00%
+  machineTotal = 31,99%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:35.400 (2026-09-24)
+  jvmUser = 1,36%
+  jvmSystem = 0,12%
+  machineTotal = 31,41%
+}
+
+jdk.CPULoad {
+  startTime = 20:43:36.400 (2026-09-24)
+  jvmUser = 1,37%
+  jvmSystem = 0,12%
+  machineTotal = 21,84%
+}
+
+jdk.GarbageCollection {
+  startTime = 20:43:36.491 (2026-09-24)
+  duration = 0,411 ms
+  gcId = 62
+  name = "G1New"
+  cause = "G1 Evacuation Pause"
+  sumOfPauses = 0,411 ms
+  longestPause = 0,411 ms
+  eventThread = "VM Thread" (osThreadId = 17923)
+}
+
+jdk.CPULoad {
+  startTime = 20:43:37.406 (2026-09-24)
+  jvmUser = 1,25%
+  jvmSystem = 0,12%
+  machineTotal = 19,18%
+}
+

@@ -1,0 +1,275 @@
+:root {
+    --bg: #08111f;
+    --surface: #101d30;
+    --surface-alt: #15263d;
+    --border: #2a405c;
+    --text: #edf4ff;
+    --muted: #a9bdd5;
+    --blue: #62b0ff;
+    --green: #67e0b1;
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 6%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand h1 {
+    margin: 4px 0;
+    font-size: 30px;
+}
+
+.brand p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.back-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: min(1250px, 92%);
+    margin: 36px auto;
+}
+
+.intro,
+.lab-section,
+.technical-note {
+    margin-bottom: 28px;
+}
+
+.intro h2,
+.section-heading h2 {
+    margin-bottom: 8px;
+}
+
+.intro p,
+.section-heading p,
+.technical-note p {
+    color: var(--muted);
+}
+
+.lab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.lab-nav button,
+.controls button {
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-alt);
+    color: var(--text);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lab-nav button.active {
+    background: #194c7d;
+    border-color: var(--blue);
+}
+
+.lab-nav button:disabled,
+.controls button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.panel,
+.execution-panel,
+.technical-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.panel h3,
+.execution-panel h3 {
+    margin-top: 0;
+    color: var(--blue);
+}
+
+pre {
+    overflow-x: auto;
+    padding: 18px;
+    background: #07101d;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--green);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.instruction-list {
+    margin: 0;
+    padding-left: 35px;
+    font-family: monospace;
+    line-height: 2;
+}
+
+.instruction-list li {
+    padding-left: 8px;
+    border-radius: 6px;
+}
+
+.instruction-list li.active {
+    background: #194c7d;
+    color: white;
+    font-weight: bold;
+}
+
+.byte-display {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.byte-display > div {
+    padding: 15px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    min-width: 0;
+}
+
+.field-label {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.byte-display strong {
+    display: block;
+    font-family: monospace;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.operand-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    min-height: 120px;
+    max-width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid var(--blue);
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.stack-value {
+    padding: 10px;
+    text-align: center;
+    background: #194c7d;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.local-variables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.local-variables p {
+    margin: 0;
+    padding: 8px 12px;
+    background: var(--surface-alt);
+    border-radius: 7px;
+    font-family: monospace;
+}
+
+.execution-panel {
+    margin-top: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.controls button:not(:disabled):hover {
+    border-color: var(--blue);
+    background: #194c7d;
+}
+
+#contadorPassos {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.technical-note code {
+    color: var(--green);
+    overflow-wrap: anywhere;
+}
+
+.footer {
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+@media (max-width: 800px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .byte-display {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,8 @@
+
+### API-07 — Diagnostico de Threads
+### Etapa 3.16 — Java 21
+
+GET http://localhost:8080/api/threads/diagnostico
+Accept: application/json
+
+###
