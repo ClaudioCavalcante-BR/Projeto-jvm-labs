@@ -1,6 +1,6 @@
 # Projeto JVM Labs — Java 21, JVM, Threads, Bytecode Explorer e Portal Web
 
-**Versão documental:** 21/10/2026  
+**Versão documental:** 28/10/2026  
 **Autor:** Claudio Cavalcante de Almeida  
 **Natureza:** projeto educacional e de portfólio, desenvolvido para estudo de Java Back-End; não homologado para produção.
 
@@ -20,7 +20,7 @@ Outro objetivo central é aprofundar o entendimento sobre **Threads e programaç
 
 Por meio do **Bytecode Explorer**, o usuário também pode acompanhar instruções produzidas pelo compilador Java, compreender operações executadas pela JVM e observar representações didáticas da pilha de operandos, das variáveis locais e dos mecanismos de sincronização.
 
-Para facilitar a aprendizagem, o projeto reúne interfaces web interativas, laboratórios executáveis, integração com APIs REST desenvolvidas em Spring Boot e um Portal de Navegação que centraliza o acesso aos módulos e experimentos.
+Para facilitar a aprendizagem, o projeto reúne interfaces web interativas, laboratórios executáveis e integração com APIs REST desenvolvidas em Spring Boot. O **Portal JVM Labs** centraliza a navegação entre os três módulos de estudos e seus experimentos.
 
 **O principal benefício do Projeto JVM Labs é transformar conceitos muitas vezes abstratos em experiências práticas, visuais e verificáveis**, contribuindo para que o usuário compreenda com maior profundidade os fundamentos de Java, uma linguagem amplamente utilizada no desenvolvimento de aplicações corporativas e sistemas de Back-End.
 
@@ -33,7 +33,16 @@ Desenvolvido por **Claudio Cavalcante de Almeida**, o Projeto JVM Labs constitui
 - **Módulo 1 — JVM:** JDK/JRE, compilação, carregamento de classes, memória, interpretação/JIT, GC, JEPs e observabilidade com `jcmd`, `jstack` e JFR.
 - **Módulo 2 — Threads:** ciclo de vida, `start`, `run`, race condition, `synchronized`, `ReentrantLock`, `tryLock`, `AtomicInteger`, Virtual Threads e diagnóstico.
 - **Módulo 3 — Bytecode Explorer:** 3.17.1 aritmética; 3.17.2 decisões; 3.17.3-A/B race/synchronized; 3.17.4 objetos; 3.17.5 monitores; 3.17.6 deadlock.
-- **Módulo 4 — Portal de Navegação:** componente de interface e integração, **não** um quarto módulo de estudo de Java. Apresenta links para os três módulos e permite retornar ao painel e alternar entre interfaces.
+
+### 2.1. Portal Web e integração REST
+
+Para centralizar o acesso aos três módulos, desenvolvi um **Portal Web** utilizando **HTML, CSS e JavaScript**, com os arquivos estáticos servidos pela aplicação **Spring Boot**.
+
+O **back-end Java 21 / Spring Boot 4.1.1** disponibiliza endpoints REST para consulta de informações e execução dos laboratórios implementados. O Portal centraliza a navegação, enquanto as interfaces dos laboratórios utilizam as APIs para conectar os conceitos estudados às funcionalidades da aplicação.
+
+**Portal JVM Labs:** interface web desenvolvida com HTML, CSS e JavaScript, integrada ao back-end Java 21 / Spring Boot 4.1.1 por meio de **APIs REST**.
+
+O Portal Web é um componente complementar aos **Módulos 1, 2 e 3** e **não constitui um quarto módulo de estudos**.
 
 ## 3. Ambiente e pré-requisitos
 
@@ -63,7 +72,7 @@ mvn -f laboratorio-api/pom.xml spring-boot:run -Dspring-boot.run.workingDirector
 
 | Área | Endereço | Ação |
 |---|---|---|
-| Portal de navegação | `http://localhost:8080/portal.html` | Painel central de acesso |
+| Portal JVM Labs | `http://localhost:8080/portal.html` | Acesso centralizado aos três módulos |
 | Módulo 1 — JVM | `http://localhost:8080/?modulo=jvm` | Seleção automática da seção JVM |
 | Módulo 2 — Threads | `http://localhost:8080/?modulo=threads` | Seleção automática da seção Threads |
 | Módulo 3 — Bytecode | `http://localhost:8080/bytecode.html` | Laboratórios 3.17.1–3.17.6 |
@@ -102,7 +111,7 @@ A abertura automática no macOS é efetuada pela classe `PortalBrowserLauncher`,
 
 ### 5.4. Identidade visual, imagem de fundo e rodapé autoral do Portal
 
-O Portal de Navegação (`/portal.html`) utiliza a imagem **`everest-bg.png`**, armazenada em `laboratorio-api/src/main/resources/static/images/`, como plano de fundo. A composição visual representa a jornada de aprendizagem e conquista técnica. O arquivo `static/css/portal.css` aplica um gradiente escuro sobre a imagem para manter o contraste e a legibilidade dos três cartões e dos acessos rápidos.
+O Portal JVM Labs (`/portal.html`) utiliza a imagem **`everest-bg.png`**, armazenada em `laboratorio-api/src/main/resources/static/images/`, como plano de fundo. A composição visual representa a jornada de aprendizagem e conquista técnica. O arquivo `static/css/portal.css` aplica um gradiente escuro sobre a imagem para manter o contraste e a legibilidade dos três cartões e dos acessos rápidos.
 
 O rodapé, implementado em `static/portal.html` e estilizado no `portal.css`, identifica o projeto e sua autoria. Seu conteúdo aprovado é:
 
@@ -314,7 +323,7 @@ Projeto-jvm-labs/                                  # Raiz do repositório e do p
 │   │   │       └── static/                           # Conteúdo web servido diretamente
 │   │   │           ├── index.html                    # Módulos 1 e 2 e mapa original
 │   │   │           ├── bytecode.html                 # Módulo 3 — Bytecode Explorer
-│   │   │           ├── portal.html                   # Módulo 4 — Portal de navegação
+│   │   │           ├── portal.html                   # Portal JVM Labs — acesso aos três módulos
 │   │   │           ├── images/                          # Imagens de apresentação do Portal
 │   │   │           │   └── everest-bg.png               # Fundo de montanha, símbolo de conquista
 │   │   │           ├── css/
